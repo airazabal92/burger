@@ -8,3 +8,8 @@
   margin: auto;
   padding: 10px 0;
 }
+
+.Price {
+  font-size: 25px;
+  font-weight: bold;
+}
