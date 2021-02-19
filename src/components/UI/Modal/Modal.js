@@ -20,8 +20,10 @@ const modal = (props) => {
   );
 };
 
-function areEqual(prevProps, nextProps) {
-  return nextProps.show === prevProps.show;
-}
+export default modal;
 
-export default React.memo(modal, areEqual);
+// function areEqual(prevProps, nextProps) {
+//   return nextProps.show === prevProps.show;
+// }
+
+// export default React.memo(modal, areEqual);
