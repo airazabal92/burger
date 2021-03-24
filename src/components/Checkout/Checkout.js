@@ -5,16 +5,15 @@ import ContactData from "../Checkout/ContactData/ContactData";
 
 class Checkout extends Component {
   state = {
-    ingredients: {
-      salad: 1,
-      meat: 1,
-      cheese: 1,
-      bacon: 1
-    }
+    ingredients: null,
+    totalPrice: 0
   };
 
-  componentDidMount() {
-    this.setState({ ingredients: this.props.history.location.ingredients });
+  componentWillMount() {
+    this.setState({
+      ingredients: this.props.history.location.ingredients,
+      totalPrice: this.props.history.location.price
+    });
   }
 
   componentDidUpdate() {
@@ -41,7 +40,13 @@ class Checkout extends Component {
         />
         <Route
           path={this.props.match.path + "/contact-data"}
-          component={ContactData}
+          render={(props) => (
+            <ContactData
+              ingredients={this.state.ingredients}
+              totalPrice={this.state.totalPrice}
+              {...props}
+            ></ContactData>
+          )}
         />
       </div>
     );
